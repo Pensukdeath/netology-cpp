@@ -64,7 +64,6 @@ int main()
     setlocale(LC_ALL, "Russian");
 
     fstream in("in.txt");
-    string str;
     int size = 0;
     
     if (in.is_open()) {
