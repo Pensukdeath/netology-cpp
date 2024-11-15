@@ -33,8 +33,8 @@ int main() {
   ifstream use("in.txt");
   string str;
   int size = 0;
-  use >> size;
   if (use.is_open()) {
+    use >> size;
     int *arr = new int[size];
     for (int i = 0; i < size; i++) {
       use >> arr[i];
