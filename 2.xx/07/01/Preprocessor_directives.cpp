@@ -50,7 +50,7 @@ int main()
 
     cout << MES << endl;
 
-#if (MODE == 0 || MODE == 1)
+#if (MODE == 1)
     cout << "Введите число 1: " << endl;
     int num_1 = 0;
     cin >> num_1;
