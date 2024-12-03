@@ -11,6 +11,6 @@ Square::Square() : Rectangle() {
 }
 
 void Square::print_info() {
-    cout << "Êâàäðàò:" << endl;
+    cout << "Â Ð²Ð°Ð´Ñ€Ð°Ñ‚:" << endl;
     Rectangle::print_info();
 }

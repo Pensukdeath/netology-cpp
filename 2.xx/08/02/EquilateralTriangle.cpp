@@ -7,10 +7,10 @@ EquilateralTriangle::EquilateralTriangle(double a)
     : Triangle(a, a, a, 60, 60, 60) {
 
     if (a <= 0)
-        throw InvalidShapeException("Îøèáêà ñîçäàíèÿ ôèãóðû. Ïðè÷èíà: äëèíà ñòîðîíû äîëæíà áûòü ïîëîæèòåëüíîé");
+        throw InvalidShapeException("ÐžÑˆÐ¸Ð±ÐºÐ° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹. ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð°: Ð´Ð»Ð¸Ð½Ð° ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ð° Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹");
 }
 
 void EquilateralTriangle::print_info() {
-    cout << "Ðàâíîñòîðîííèé òðåóãîëüíèê:" << endl;
+    cout << "Ð Ð°Ð²Ð½Ð¾ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð½Ð¸Ð¹ Ñ‚Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº:" << endl;
     Triangle::print_info();
 }

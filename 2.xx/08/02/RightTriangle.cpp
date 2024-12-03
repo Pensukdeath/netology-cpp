@@ -7,10 +7,10 @@ RightTriangle::RightTriangle(double a, double b, double c)
     : Triangle(a, b, c, 90, 45, 45) {
 
     if (c * c != a * a + b * b)
-        throw InvalidShapeException("Ошибка создания фигуры. Причина: треугольник не является прямоугольным");
+        throw InvalidShapeException("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„РёРіСѓСЂС‹. РџСЂРёС‡РёРЅР°: С‚СЂРµСѓРіРѕР»СЊРЅРёРє РЅРµ СЏРІР»СЏРµС‚СЃСЏ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Рј");
 }
 
 void RightTriangle::print_info() {
-    cout << "Прямоугольный треугольник:" << endl;
+    cout << "РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє:" << endl;
     Triangle::print_info();
 }

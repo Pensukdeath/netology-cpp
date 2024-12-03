@@ -15,6 +15,6 @@ Rhombus::Rhombus() : Parallelogram() {
 }
 
 void Rhombus::print_info() {
-    cout << "Ðîìá:" << endl;
+    cout << "Ð Ð¾Ð¼Ð±:" << endl;
     Parallelogram::print_info();
 }

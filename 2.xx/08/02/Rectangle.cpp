@@ -6,6 +6,6 @@ using namespace std;
 Rectangle::Rectangle() : Quadrilateral(10, 20, 10, 20, 90, 90, 90, 90) {}
 
 void Rectangle::print_info() {
-    cout << "Ïðÿìîóãîëüíèê:" << endl;
+    cout << "ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº:" << endl;
     Quadrilateral::print_info();
 }

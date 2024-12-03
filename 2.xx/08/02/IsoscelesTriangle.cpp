@@ -7,13 +7,13 @@ IsoscelesTriangle::IsoscelesTriangle(double a, double b, double c, double A)
     : Triangle(a, b, c, A, A, 180 - 2 * A) {
 
     if (a != c)
-        throw InvalidShapeException("Ошибка создания фигуры. Причина: для равнобедренного треугольника стороны a и c должны быть равны");
+        throw InvalidShapeException("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„РёРіСѓСЂС‹. РџСЂРёС‡РёРЅР°: РґР»СЏ СЂР°РІРЅРѕР±РµРґСЂРµРЅРЅРѕРіРѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° СЃС‚РѕСЂРѕРЅС‹ a Рё c РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СЂР°РІРЅС‹");
 
     if (A + A + (180 - 2 * A) != 180)
-        throw InvalidShapeException("Ошибка создания фигуры. Причина: неверная сумма углов");
+        throw InvalidShapeException("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„РёРіСѓСЂС‹. РџСЂРёС‡РёРЅР°: РЅРµРІРµСЂРЅР°СЏ СЃСѓРјРјР° СѓРіР»РѕРІ");
 }
 
 void IsoscelesTriangle::print_info() {
-    cout << "Равнобедренный треугольник:" << endl;
+    cout << "Р Р°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє:" << endl;
     Triangle::print_info();
 }

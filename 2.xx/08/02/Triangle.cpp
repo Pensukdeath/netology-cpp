@@ -5,10 +5,10 @@ using namespace std;
 
 Triangle::Triangle(double a, double b, double c, double A, double B, double C) {
     if (a <= 0 || b <= 0 || c <= 0)
-        throw InvalidShapeException("Îøèáêà ñîçäàíèÿ ôèãóðû. Ïðè÷èíà: äëèíû ñòîðîí äîëæíû áûòü ïîëîæèòåëüíûìè");
+        throw InvalidShapeException("ÐžÑˆÐ¸Ð±ÐºÐ° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹. ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð°: Ð´Ð»Ð¸Ð½Ñ‹ ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸");
 
     if (A + B + C != 180)
-        throw InvalidShapeException("Îøèáêà ñîçäàíèÿ ôèãóðû. Ïðè÷èíà: ñóììà óãëîâ íå ðàâíà 180");
+        throw InvalidShapeException("ÐžÑˆÐ¸Ð±ÐºÐ° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹. ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð°: ÑÑƒÐ¼Ð¼Ð° ÑƒÐ³Ð»Ð¾Ð² Ð½Ðµ Ñ€Ð°Ð²Ð½Ð° 180");
 
     this->a = a;
     this->b = b;
@@ -19,6 +19,6 @@ Triangle::Triangle(double a, double b, double c, double A, double B, double C) {
 }
 
 void Triangle::print_info() {
-    cout << "Ñòîðîíû: a=" << a << " b=" << b << " c=" << c << endl;
-    cout << "Óãëû: A=" << A << " B=" << B << " C=" << C << endl;
+    cout << "Ð¡Ñ‚Ð¾Ñ€Ð¾Ð½Ñ‹: a=" << a << " b=" << b << " c=" << c << endl;
+    cout << "Ð£Ð³Ð»Ñ‹: A=" << A << " B=" << B << " C=" << C << endl;
 }
