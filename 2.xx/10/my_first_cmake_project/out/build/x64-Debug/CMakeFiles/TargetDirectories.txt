@@ -1,0 +1,3 @@
+C:/Users/Pensukdeath/Desktop/GIT/netology-cpp/2.xx/10/my_first_cmake_project/out/build/x64-Debug/CMakeFiles/my_first_cmake_program.dir
+C:/Users/Pensukdeath/Desktop/GIT/netology-cpp/2.xx/10/my_first_cmake_project/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Pensukdeath/Desktop/GIT/netology-cpp/2.xx/10/my_first_cmake_project/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
