@@ -1,0 +1,10 @@
+^C:\TEST\LEAVERLIBRARY\BIN\CMAKEFILES\7C58ACF774BDA250EE7A44CFED10210A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Test/LeaverLibrary -BC:/Test/LeaverLibrary/bin --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Test/LeaverLibrary/bin/LeaverLibrary.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
