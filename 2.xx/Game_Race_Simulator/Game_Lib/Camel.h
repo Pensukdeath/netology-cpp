@@ -1,10 +1,10 @@
-#pragma once
+ο»Ώ#pragma once
 
 #include "GroundTransport.h"
 
 class DLL_EXPORT Camel : public GroundTransport {
 public:
-    std::string getName() override { return "Βεπαλώδ"; }
+    std::string getName() override { return "Π’ΠµΡ€Π±Π»ΡΠ΄"; }
     double getSpeed() override { return 10.0; }
     double getTime(double distance) override;
 };

@@ -1,4 +1,4 @@
-#define BUILD_DLL
+﻿#define BUILD_DLL
 #include "GameLib.h"
 #include "Camel.h"
 #include "FastCamel.h"

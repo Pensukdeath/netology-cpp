@@ -1,10 +1,10 @@
-#pragma once
+п»ї#pragma once
 
 #include "GroundTransport.h"
 
 class DLL_EXPORT AllTerrainBoots : public GroundTransport {
 public:
-    std::string getName() override { return "Ботинки-вездеходы"; }
+    std::string getName() override { return "Р‘РѕС‚РёРЅРєРё-РІРµР·РґРµС…РѕРґС‹"; }
     double getSpeed() override { return 6.0; }
     double getTime(double distance) override;
 };

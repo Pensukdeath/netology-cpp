@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 #include "GroundTransport.h"
 
 class DLL_EXPORT Centaur : public GroundTransport {
 public:
-    std::string getName() override { return "Êåíòàâğ"; }
+    std::string getName() override { return "ĞšĞµĞ½Ñ‚Ğ°Ğ²Ñ€"; }
     double getSpeed() override { return 15.0; }
     double getTime(double distance) override;
 };

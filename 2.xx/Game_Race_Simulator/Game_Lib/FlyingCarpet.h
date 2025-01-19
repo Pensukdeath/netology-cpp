@@ -1,10 +1,10 @@
-#pragma once
+п»ї#pragma once
 
 #include "FlyingTransport.h"
 
 class DLL_EXPORT FlyingCarpet : public FlyingTransport {
 public:
-    std::string getName() override { return "Ковёр-самолёт"; }
+    std::string getName() override { return "РљРѕРІС‘СЂ-СЃР°РјРѕР»С‘С‚"; }
     double getSpeed() override { return 10.0; }
     double getTime(double distance) override;
 };

@@ -1,10 +1,10 @@
-#pragma once
+п»ї#pragma once
 
 #include "GroundTransport.h"
 
 class DLL_EXPORT FastCamel : public GroundTransport {
 public:
-    std::string getName() override { return "Верблюд-быстроход"; }
+    std::string getName() override { return "Р’РµСЂР±Р»СЋРґ-Р±С‹СЃС‚СЂРѕС…РѕРґ"; }
     double getSpeed() override { return 40.0; }
     double getTime(double distance) override;
 };

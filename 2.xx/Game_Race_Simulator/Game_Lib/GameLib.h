@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #ifdef BUILD_DLL
 #define DLL_EXPORT __declspec(dllexport)
