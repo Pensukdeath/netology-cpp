@@ -25,9 +25,11 @@ std::cout << result; // 193099
 
 class big_integer {
 public:
-    big_integer(const std::string& str) {
-        for (int i = str.size() - 1; i >= 0; --i) {
-            digits.push_back(str[i] - '0');
+    big_integer() = default;
+
+    explicit big_integer(const std::string& str) {
+        for (size_t i = str.size(); i > 0; --i) {
+            digits.push_back(str[i - 1] - '0');
         }
         remove_leading_zeros();
     }
@@ -41,12 +43,14 @@ public:
         return *this;
     }
 
+    ~big_integer() = default;
+
     big_integer operator+(const big_integer& other) const {
-        big_integer result;
+        big_integer result("");
         int carry = 0;
-        int max_size = std::max(digits.size(), other.digits.size());
+        size_t max_size = std::max(digits.size(), other.digits.size());
         
-        for (int i = 0; i < max_size || carry; ++i) {
+        for (size_t i = 0; i < max_size || carry; ++i) {
             int sum = carry;
             if (i < digits.size()) sum += digits[i];
             if (i < other.digits.size()) sum += other.digits[i];
@@ -58,10 +62,10 @@ public:
     }
 
     big_integer operator*(int n) const {
-        big_integer result;
+        big_integer result("");
         int carry = 0;
         
-        for (int i = 0; i < digits.size() || carry; ++i) {
+        for (size_t i = 0; i < digits.size() || carry; ++i) {
             int prod = carry;
             if (i < digits.size()) prod += digits[i] * n;
             
@@ -72,8 +76,12 @@ public:
     }
 
     friend std::ostream& operator<<(std::ostream& os, const big_integer& num) {
-        for (int i = num.digits.size() - 1; i >= 0; --i) {
-            os << num.digits[i];
+        if (num.digits.empty()) {
+            os << 0;
+        } else {
+            for (size_t i = num.digits.size(); i > 0; --i) {
+                os << num.digits[i - 1];
+            }
         }
         return os;
     }
@@ -92,6 +100,6 @@ int main() {
     auto number1 = big_integer("114575");
     auto number2 = big_integer("78524");
     auto result = number1 + number2;
-    std::cout << result;
+    std::cout << result << std::endl;
     return 0;
 }
