@@ -1,0 +1,8 @@
+FROM gcc:latest
+
+WORKDIR /app
+COPY . .
+
+RUN make CXX=g++
+
+CMD ["./app"]
