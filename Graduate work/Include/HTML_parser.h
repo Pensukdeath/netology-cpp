@@ -12,7 +12,6 @@
 #include "Utils.h"
 #include "DB_Client.h"
 
-
 class HTML_Parser
 {
 private:
@@ -20,7 +19,7 @@ private:
 	Link link{};
 	std::string htmlContent{ "" };
 	std::map<std::string, unsigned int> wordCount{};
-	DB_Client db;
+	DB_Client& db; // исправлено: ссылка на объект DB_Client (не копируем подключение)
 	std::vector<std::string> subLinks{};
 
 	std::vector<std::string> extractLink()
@@ -35,7 +34,7 @@ private:
 		for (std::sregex_iterator i = links_begin; i != links_end; ++i)
 		{
 			std::smatch sm = *i;
-			if (sm[1].str().at(0) != '#')//такая ссылка не пойдет
+			if (sm[1].str().at(0) != '#') //такая ссылка не пойдет
 			{
 				Link tmplink = this->UrlToLink(sm[1].str(), link);
 				//если ссылка уникальна - запишем ее
@@ -47,8 +46,9 @@ private:
 		}
 		return arrayLinks;
 	}
+
 	std::map<std::string, unsigned int> extractWords(const std::string& html)
-	{	
+	{
 		//формируем массив слов с количеством повторений каждого
 		std::map<std::string, unsigned int> wordArray;
 
@@ -61,7 +61,7 @@ private:
 		std::string regex_str = "<title>(.?)[^<]*";
 		if (std::regex_search(testString, titleRes, std::regex(regex_str)))
 		{
-			titleStr = titleRes.str()+"</title>";
+			titleStr = titleRes.str() + "</title>";
 		}
 
 		std::string testString1 = testString;
@@ -77,8 +77,8 @@ private:
 				++begin;
 				if (begin >= end) break;
 			}
-			if (begin >= end) break;//OK
-			
+			if (begin >= end) break;
+
 			while (*begin != '<')
 			{
 				word.erase();
@@ -88,17 +88,17 @@ private:
 					++begin;
 					if (begin >= end) break;
 				}
-				if (begin >= end) break;//OK
-				
+				if (begin >= end) break;
+
 				if (word.length() > minSize)
 				{
 					toLower(word);
 					wordArray[word]++;
 				}
 				++begin;
-				if (begin >= end) break;//OK
+				if (begin >= end) break;
 			}
-			if (begin >= end) break;//OK
+			if (begin >= end) break;
 		}
 		return wordArray;
 	}
@@ -107,7 +107,7 @@ private:
 	{
 		//разбираем стартовую ссылку
 		//формируем структуру ссылки
-		std::regex ur("(https?)?(:?\/\/)?([[:alnum:]-_]+\..*?)?(\/.*)");
+		std::regex ur("(https?)?(:?\\/\\/)?([[:alnum:]-_]+\\..*?)?(\\/.*)");
 
 		std::smatch sm;
 		std::regex_search(html, sm, ur);
@@ -126,7 +126,7 @@ private:
 		else
 		{
 			throw "Bad first URL: not find protocol.";
-		};
+		}
 
 		if (sm[3].length() != 0)
 		{
@@ -135,7 +135,7 @@ private:
 		else
 		{
 			throw "Bad first URL: not find host.";
-		};
+		}
 
 		if (sm[4].length() != 0)
 		{
@@ -144,7 +144,7 @@ private:
 		else
 		{
 			tmp_link.query = '/';
-		};
+		}
 		return tmp_link;
 	}
 
@@ -153,13 +153,12 @@ private:
 		//преобразуем дочернюю ссылку в структуру ссылки
 		//учтем, что в дочерней ссылке может не быть нужных параметров
 		//берем их из родительской ссылки
-		std::regex ur("(https?)?(:?\/\/)?([[:alnum:]_-]+\.[^\/]+)?(\/.*(#[^\/]+$)?)");
+		std::regex ur("(https?)?(:?\\/\\/)?([[:alnum:]_-]+\\.[^\\/]+)?(\\/.*(#[^\\/]+$)?)");
 
 		std::smatch sm;
 		std::regex_search(html, sm, ur);
 
 		Link tmp_link;
-
 
 		if (sm[1].length() != 0)
 		{
@@ -175,7 +174,7 @@ private:
 		else
 		{
 			tmp_link.protocol = url.protocol;
-		};
+		}
 
 		if (sm[3].length() != 0)
 		{
@@ -184,7 +183,7 @@ private:
 		else
 		{
 			tmp_link.host = url.host;
-		};
+		}
 
 		if (sm[4].length() != 0)
 		{
@@ -205,9 +204,8 @@ private:
 	}
 
 public:
-	HTML_Parser(DB_Client& db, const std::string& url)
+	HTML_Parser(DB_Client& db, const std::string& url) : db(db) // передаём объект по ссылке
 	{
-		this->db = db;
 		this->url = url;
 		link = UrlToLink(this->url);
 	}
@@ -232,7 +230,6 @@ public:
 		subLinks = extractLink();
 
 		return true;
-		
 	}
 
 	std::string GetURL()
@@ -246,7 +243,6 @@ public:
 		{
 			return("https://" + link.host + link.query);
 		}
-		
 	}
 
 	Link GetLink()
@@ -258,7 +254,4 @@ public:
 	{
 		return subLinks;
 	}
-
-
-
 };
